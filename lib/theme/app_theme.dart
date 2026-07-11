@@ -1,0 +1,138 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+/// ---------------------------------------------------------------------------
+/// COLOR TOKENS
+/// ---------------------------------------------------------------------------
+class AppColors {
+  AppColors._();
+
+  /// Backgrounds
+  static const Color paper = Color(0xFFFFFFFF);
+  static const Color cream = Color(0xFFFEF6F2);
+
+  /// Main wedding palette
+  static const Color ribbonPale = Color(0xFFEFC9C2);
+  static const Color ribbon =  Color(0xFFD62839);
+  static const Color ribbonDeep =  Color(0xFF2B0306);
+
+  /// Accent
+  static const Color gold = Color(0xFFC9A15A);
+
+  /// Text
+  static const Color ink = Color(0xFF2B0306);
+  static const Color inkSoft = Color(0xFF6B3B33);
+
+  /// Backward compatibility
+  static const Color rosePale = ribbonPale;
+  static const Color rose = ribbonPale;
+  static const Color crimson = ribbon;
+  static const Color crimsonDeep = ribbonDeep;
+}
+
+/// ---------------------------------------------------------------------------
+/// TYPE TOKENS
+/// Italiana   -> names / monogram (display serif)
+/// Marcellus  -> section titles, card-corner marks (caps serif)
+/// Italianno  -> the cursive "love" accent in the footer
+/// Jost       -> body copy, buttons, dates
+/// ---------------------------------------------------------------------------
+class AppText {
+  AppText._();
+
+  static TextStyle names(double size) => GoogleFonts.italiana(
+        fontSize: size,
+        color: AppColors.crimsonDeep,
+        letterSpacing: size * 0.03,
+        height: 1,
+      );
+
+  static TextStyle title(double size) => GoogleFonts.marcellus(
+        fontSize: size,
+        color: AppColors.crimsonDeep,
+        letterSpacing: 1,
+        height: 1.15,
+      );
+
+  static TextStyle eyebrow(double size) => GoogleFonts.marcellus(
+        fontSize: size,
+        color: AppColors.crimson,
+        height: 1.5,
+      );
+
+  static TextStyle copy(double size) => GoogleFonts.jost(
+        fontSize: size,
+        color: AppColors.inkSoft,
+        height: 1.7,
+        fontWeight: FontWeight.w300,
+      );
+
+  static TextStyle button = GoogleFonts.jost(
+    fontSize: 13,
+    color: Colors.white,
+    letterSpacing: 1.2,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle script(double size) => GoogleFonts.italianno(
+        fontSize: size,
+        color: AppColors.crimson,
+        height: 1,
+      );
+
+  static TextStyle monogram = GoogleFonts.italiana(
+    fontSize: 16,
+    color: AppColors.inkSoft,
+    letterSpacing: 3,
+  );
+}
+
+/// ---------------------------------------------------------------------------
+/// RESPONSIVE BREAKPOINTS
+/// mobile  < 700
+/// tablet  700–1023
+/// desktop >= 1024
+/// ---------------------------------------------------------------------------
+enum DeviceType { mobile, tablet, desktop }
+
+class Responsive {
+  Responsive._();
+
+  static const double tabletBreakpoint = 700;
+  static const double desktopBreakpoint = 1024;
+
+  static DeviceType deviceTypeOf(double width) {
+    if (width >= desktopBreakpoint) return DeviceType.desktop;
+    if (width >= tabletBreakpoint) return DeviceType.tablet;
+    return DeviceType.mobile;
+  }
+
+  /// Max content width inside a section — sections themselves are full-width.
+  static double contentMaxWidth(DeviceType type) {
+    switch (type) {
+      case DeviceType.desktop:
+        return 900;
+      case DeviceType.tablet:
+        return 640;
+      case DeviceType.mobile:
+        return double.infinity; // Mobile: content fills padded width
+    }
+  }
+
+  /// Horizontal padding inside each section, per breakpoint.
+  static double sectionPaddingX(DeviceType type) {
+    switch (type) {
+      case DeviceType.desktop:
+        return 80;
+      case DeviceType.tablet:
+        return 56;
+      case DeviceType.mobile:
+        return 24;
+    }
+  }
+
+  /// Simple fluid-type helper.
+  static double clamp(double min, double preferred, double max) {
+    return preferred.clamp(min, max);
+  }
+}
