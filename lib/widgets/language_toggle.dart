@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 
 
+import 'package:flutter/material.dart';
+
 class LanguageToggle extends StatelessWidget {
   const LanguageToggle({
     super.key,
@@ -90,23 +92,25 @@ class _LangTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
+      height: 40,
+      width: 50,
       duration: const Duration(milliseconds: 200),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
       decoration: BoxDecoration(
         color: active ? AppColors.crimson : Colors.transparent,
         borderRadius: BorderRadius.circular(18),
       ),
-      child: Text(
-        label,
-        textDirection:
-        _isArabicLabel ? TextDirection.rtl : TextDirection.ltr,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontFamily: _isArabicLabel ? 'Tajawal' : null,
-          fontSize: 13,
-          fontWeight: FontWeight.bold,
-          height: 1.3,
-          color: active ? Colors.white : AppColors.inkSoft,
+      child: Padding(
+        padding: const EdgeInsets.all(6.0),
+        child: Text(
+          label,
+          textDirection:
+          _isArabicLabel ? TextDirection.rtl : TextDirection.ltr,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
+            color: active ? Colors.white : AppColors.inkSoft,
+          ),
         ),
       ),
     );

@@ -151,7 +151,7 @@ class HeroSection extends StatelessWidget {
   Widget _photo(Size size) {
     return SizedBox(
       width: 400,
-      height: 400,
+      height: 450,
       child: Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.center,
