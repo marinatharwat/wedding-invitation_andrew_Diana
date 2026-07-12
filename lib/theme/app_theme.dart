@@ -38,6 +38,8 @@ class AppColors {
 /// Jost       -> body copy, buttons, dates
 /// ---------------------------------------------------------------------------
 class AppText {
+  static const String playfair = 'Playfair';
+
   AppText._();
 
   static TextStyle names(double size) => GoogleFonts.italiana(
@@ -85,7 +87,48 @@ class AppText {
     color: AppColors.inkSoft,
     letterSpacing: 3,
   );
-}
+
+
+  static TextStyle heroTitle = TextStyle(
+  fontFamily: 'Georgia',
+  fontSize: 52,
+  fontWeight: FontWeight.bold,
+    color: AppColors.crimson,
+  height: 1.1,
+  );
+
+  static TextStyle heroSubtitle = TextStyle(
+  fontFamily: 'Georgia',
+  fontSize: 18,
+  fontStyle: FontStyle.italic,
+    color: AppColors.crimson,  letterSpacing: 1.5,
+  );
+
+  static TextStyle sectionTitle = const TextStyle(
+  fontFamily: 'Georgia',
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+    color: AppColors.crimson,
+    letterSpacing: 3,
+  );
+
+  static TextStyle body = const TextStyle(
+  fontSize: 14,
+    color: AppColors.crimson,  height: 1.6,
+  );
+
+  static TextStyle countdown = const TextStyle(
+  fontFamily: 'Georgia',
+  fontSize: 36,
+  fontWeight: FontWeight.bold,
+    color: AppColors.crimson,  );
+
+  static TextStyle countdownLabel = const TextStyle(
+  fontSize: 12,
+    color: AppColors.crimson,  letterSpacing: 2,
+  );
+  }
+
 
 /// ---------------------------------------------------------------------------
 /// RESPONSIVE BREAKPOINTS

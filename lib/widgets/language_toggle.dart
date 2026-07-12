@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 
-/// Small pill-shaped EN / عربي switch.
-///
-/// Tapping it flips [currentLocale] (handled by the parent via [onToggle]),
-/// which in turn re-renders the whole page in the other language and flips
-/// its reading direction.
+
 class LanguageToggle extends StatelessWidget {
   const LanguageToggle({
     super.key,
     required this.currentLocale,
     required this.onToggle,
-
     required this.isPlaying,
     required this.audioReady,
     required this.onToggleAudio,
@@ -34,7 +29,7 @@ class LanguageToggle extends StatelessWidget {
         GestureDetector(
           onTap: onToggle,
           child: Container(
-            height: 35,
+            height: 38,
             padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -52,6 +47,8 @@ class LanguageToggle extends StatelessWidget {
               ],
             ),
             child: Directionality(
+              // ده بيتحكم في ترتيب الزرارين (EN شمال / عربي يمين) بس
+              // مش في شكل الحروف جوه كل زرار — الشكل بيتظبط تحت في _LangTab
               textDirection: TextDirection.ltr,
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -79,7 +76,8 @@ class LanguageToggle extends StatelessWidget {
         ),
       ],
     );
-  }}
+  }
+}
 
 class _LangTab extends StatelessWidget {
   const _LangTab({required this.label, required this.active});
@@ -87,26 +85,34 @@ class _LangTab extends StatelessWidget {
   final String label;
   final bool active;
 
+  bool get _isArabicLabel => label == 'عربي';
+
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
       decoration: BoxDecoration(
         color: active ? AppColors.crimson : Colors.transparent,
         borderRadius: BorderRadius.circular(18),
       ),
       child: Text(
         label,
+        textDirection:
+        _isArabicLabel ? TextDirection.rtl : TextDirection.ltr,
+        textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 12,
+          fontFamily: _isArabicLabel ? 'Tajawal' : null,
+          fontSize: 13,
           fontWeight: FontWeight.bold,
+          height: 1.3,
           color: active ? Colors.white : AppColors.inkSoft,
         ),
       ),
     );
   }
 }
+
 class _MusicButton extends StatelessWidget {
   const _MusicButton({
     required this.isPlaying,
@@ -132,28 +138,20 @@ class _MusicButton extends StatelessWidget {
               ? AppColors.crimson.withOpacity(.12)
               : Colors.transparent,
           border: Border.all(
-            color: isPlaying
-                ? AppColors.crimson
-                : AppColors.rose,
+            color: isPlaying ? AppColors.crimson : AppColors.rose,
           ),
         ),
         child: Center(
           child: audioReady
               ? Icon(
-            isPlaying
-                ? Icons.music_note
-                : Icons.music_off,
+            isPlaying ? Icons.music_note : Icons.music_off,
             size: 16,
-            color: isPlaying
-                ? AppColors.crimson
-                : AppColors.inkSoft,
+            color: isPlaying ? AppColors.crimson : AppColors.inkSoft,
           )
               : const SizedBox(
             width: 14,
             height: 14,
-            child: CircularProgressIndicator(
-              strokeWidth: 1.5,
-            ),
+            child: CircularProgressIndicator(strokeWidth: 1.5),
           ),
         ),
       ),

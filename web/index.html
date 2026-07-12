@@ -196,13 +196,44 @@
 </script>
 
 <script>
+    // منع ظهور بانر "إضافة التطبيق للشاشة الرئيسية" خالص
+    // لأن دي صفحة دعوة ويب بس مش تطبيق
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    });
+</script>
+
+<script>
     const splashStartTime = Date.now();
     const minSplashDuration = 2000;
 
     let splashHidden = false;
+    let flutterReady = false;
+    let imagesReady = false;
 
-    function hideSplash() {
-        if (splashHidden) return;
+    // نفس مسار الأصول اللي فلاتر ويب بيولّده تلقائيًا (assets/assets/...)
+    const criticalImages = [
+        'assets/assets/images/1.png',
+        'assets/assets/images/2.png',
+    ];
+
+    let loadedCount = 0;
+    criticalImages.forEach((src) => {
+        const img = new Image();
+        img.onload = img.onerror = () => {
+            loadedCount++;
+            if (loadedCount === criticalImages.length) {
+                imagesReady = true;
+                tryHideSplash();
+            }
+        };
+        img.src = src;
+    });
+
+    function tryHideSplash() {
+        if (!flutterReady || !imagesReady || splashHidden) return;
         splashHidden = true;
 
         const elapsed = Date.now() - splashStartTime;
@@ -217,12 +248,15 @@
     }
 
     window.addEventListener('flutter-first-frame', () => {
-        hideSplash();
+        flutterReady = true;
+        tryHideSplash();
     });
 
-    // Safety net: لو flutter-first-frame مجاش بعد 8 ثواني
+    // Safety net: لو الصور أو فلاتر اتأخروا كتير، منسيبش المستخدم واقف لحد الأبد
     setTimeout(() => {
-        hideSplash();
+        flutterReady = true;
+        imagesReady = true;
+        tryHideSplash();
     }, 8000);
 </script>
 

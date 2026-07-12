@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../theme/app_theme.dart';
 import 'dart:math' as math;
+import 'package:flutter/material.dart';
 
 class HeroSection extends StatelessWidget {
   const HeroSection({
@@ -78,7 +79,8 @@ class HeroSection extends StatelessWidget {
       Text(
         loc.youAreInvited,
         textAlign: TextAlign.center,
-        style: GoogleFonts.cormorantGaramond(
+        style: TextStyle(
+          fontFamily: 'CormorantGaramond',
           fontSize: _isDesktop ? 28 : 22,
           fontWeight: FontWeight.w600,
           color: _crimson,
@@ -88,7 +90,8 @@ class HeroSection extends StatelessWidget {
       Text(
         loc.theWeddingOf,
         textAlign: TextAlign.center,
-        style: GoogleFonts.cormorantGaramond(
+        style: TextStyle(
+          fontFamily: 'CormorantGaramond',
           fontSize: _isDesktop ? 28 : 22,
           fontWeight: FontWeight.w600,
           color: _crimson,
@@ -101,10 +104,11 @@ class HeroSection extends StatelessWidget {
           names[0],
           textAlign: TextAlign.center,
           overflow: TextOverflow.visible,
-          style: GoogleFonts.parisienne(
-            fontSize: _isDesktop ? 60 : 50,
+          style: TextStyle(
+            fontFamily: 'AlexBrush',
+            fontSize: _isDesktop ? 76 : 64,
             color: _crimson,
-            height: 1.05,
+            height: 1.35,
           ),
         ),
       ),
@@ -114,7 +118,8 @@ class HeroSection extends StatelessWidget {
         // family as the eyebrow/date, not the cursive font
         Text(
           '&',
-          style: GoogleFonts.cormorantGaramond(
+          style: TextStyle(
+            fontFamily: 'CormorantGaramond',
             fontSize: 22,
             fontWeight: FontWeight.w600,
             letterSpacing: 2,
@@ -128,24 +133,20 @@ class HeroSection extends StatelessWidget {
             names[1],
             textAlign: TextAlign.center,
             overflow: TextOverflow.visible,
-            style: GoogleFonts.parisienne(
-              fontSize: _isDesktop ? 60 : 50,
+            style: TextStyle(
+              fontFamily: 'AlexBrush',
+              fontSize: _isDesktop ? 76 : 64,
               color: _crimson,
-              height: 1.05,
+              height: 1.35,
             ),
           ),
         ),
-        SizedBox(
-          height: 20,
-        ),
+        const SizedBox(height: 20),
         _photo(frameSize),
-        SizedBox(
-          height: 20,
-        ),
+        const SizedBox(height: 20),
       ]
     ]);
   }
-
 
   Widget _photo(Size size) {
     return SizedBox(
@@ -190,18 +191,20 @@ class _VerseBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     final lines = raw.split('\n');
     final verse = lines.first.trim();
-    final reference = lines.length > 1 ? lines.sublist(1).join(' ').trim() : '';
+    final reference =
+    lines.length > 1 ? lines.sublist(1).join(' ').trim() : '';
 
     return ConstrainedBox(
       constraints: BoxConstraints(maxWidth: isDesktop ? 420 : 300),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(height:60),
+          const SizedBox(height: 60),
           Text(
             '“ $verse ”',
             textAlign: TextAlign.center,
-            style: GoogleFonts.cormorantGaramond(
+            style: TextStyle(
+              fontFamily: 'CormorantGaramond',
               fontSize: isDesktop ? 19 : 16.5,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w500,
@@ -214,7 +217,8 @@ class _VerseBlock extends StatelessWidget {
             Text(
               reference.replaceAll(RegExp(r'[()]'), '').toUpperCase(),
               textAlign: TextAlign.center,
-              style: GoogleFonts.jost(
+              style: const TextStyle(
+                fontFamily: 'Jost',
                 fontSize: 11,
                 letterSpacing: 3,
                 fontWeight: FontWeight.w500,
@@ -252,33 +256,6 @@ class WaveClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
-}
-
-class _OutlineHeartPainter extends CustomPainter {
-  _OutlineHeartPainter({required this.color});
-
-  final Color color;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final w = size.width, h = size.height;
-    final path = Path()
-      ..moveTo(w * 0.5, h * 0.98)
-      ..cubicTo(w * -0.05, h * 0.62, w * 0.05, h * 0.02, w * 0.5, h * 0.26)
-      ..cubicTo(w * 0.95, h * 0.02, w * 1.05, h * 0.62, w * 0.5, h * 0.98)
-      ..close();
-
-    canvas.drawPath(
-      path,
-      Paint()
-        ..color = color
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 1.2,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
 // ─────────────────────────────────────────────

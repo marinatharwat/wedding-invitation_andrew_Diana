@@ -2,9 +2,9 @@
   "name": "Andrew & Diana  Wedding",
   "short_name": "Wedding",
   "start_url": ".",
-  "display": "standalone",
-  "background_color": "#FDF5EE",
-  "theme_color": "#B5541A",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#D62839",
   "description": "Andrew & Diana Wedding Invitation",
   "orientation": "portrait-primary",
   "icons": [
