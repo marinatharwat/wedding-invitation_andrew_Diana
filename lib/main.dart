@@ -317,7 +317,7 @@ class _WeddingInvitationPageState extends State<WeddingInvitationPage> {
                         height: 55,
                         color: AppColors.paper,
                         child: Padding(
-                          padding: const EdgeInsets.all(4.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: LanguageToggle(
                             currentLocale: _locale,
                             onToggle: _toggleLocale,
