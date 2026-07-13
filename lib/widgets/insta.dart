@@ -96,15 +96,12 @@ class _MomentoInstagramWidgetState extends State<MomentoInstagramWidget> {
 
         const Align(
           alignment: Alignment.centerRight,
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Text(
-              'v4.0.0',
-              style: TextStyle(
-                fontSize: 9,
-                letterSpacing: 1.5,
-                color: AppColors.ink,
-              ),
+          child: Text(
+            'v5.0.0',
+            style: TextStyle(
+              fontSize: 9,
+              letterSpacing: 1.5,
+              color: AppColors.ink,
             ),
           ),
         ),

@@ -22,8 +22,8 @@ class AppLocalizations {
   // Hero
   // ---------------------------------------------------------------------
   String get heroEyebrow => isArabic
-      ? 'لذلك يترك الرجل أباه وأمه ويلتصق بامرأته ويكونان جسدا واحدا\n(تكوين 2:24) '
-      : 'Therefore a man shall leave his father and mother and be joined to his wife, and they shall become one flesh.\n(Genesis 2:24)';
+      ? 'مِنْ أَجْلِ هَذَا يَتْرُكُ الرَّجُلُ أَبَاهُ وَأُمَّهُ وَيَلْتَصِقُ بِامْرَأَتِهِ، وَيَكُونُ الاثْنَانِ جَسَدًا وَاحِدًا.\n(تكوين 2:24) '
+      : 'Therefore a man shall leave his father and mother and be joined to his wife, and the two shall become one flesh.\n(Genesis 2:24)';
   String get heroCoupleNames => isArabic ? 'اندرو وديانا' : 'Andrew & Diana';
   String get heroWeddingDate => isArabic ? '٢٨ . ٠٧ . ٢٠٢٦' : '28 . 07 . 2026';
   String get heroLetterA => isArabic ? 'E' : 'E';
@@ -230,7 +230,7 @@ class AppLocalizations {
 
   String get partyName => isArabic
       ? 'كنيسة العدرا والقديس أثناسيوس الرسول'
-      : 'Church of El Adra & St. Athanasius the Apostle';
+      : 'Saint Mary & Saint Athanasius Church';
 
   String get partyAddress =>
       isArabic ? 'مدينة نصر، القاهرة' : 'Nasr City, Cairo';
