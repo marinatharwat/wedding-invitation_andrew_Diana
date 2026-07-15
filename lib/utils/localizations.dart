@@ -22,8 +22,8 @@ class AppLocalizations {
   // Hero
   // ---------------------------------------------------------------------
   String get heroEyebrow => isArabic
-      ? 'مِنْ أَجْلِ هَذَا يَتْرُكُ الرَّجُلُ أَبَاهُ وَأُمَّهُ وَيَلْتَصِقُ بِامْرَأَتِهِ، وَيَكُونُ الاثْنَانِ جَسَدًا وَاحِدًا.\n(تكوين 2:24) '
-      : 'Therefore a man shall leave his father and mother and be joined to his wife, and the two shall become one flesh.\n(Genesis 2:24)';
+      ? 'وَيَكُونُ الاثْنَانِ جَسَدًا وَاحِدًا. إِذًا لَيْسَا بَعْدُ اثْنَيْنِ بَلْ جَسَدٌ وَاحِدٌ.\n(مرقس 8:10) '
+      : 'And they twain shall be one flesh: so then they are no more twain, but one flesh.\n(Mark 10:8)';
   String get heroCoupleNames => isArabic ? 'اندرو وديانا' : 'Andrew & Diana';
   String get heroWeddingDate => isArabic ? '٢٨ . ٠٧ . ٢٠٢٦' : '28 . 07 . 2026';
   String get heroLetterA => isArabic ? 'E' : 'E';

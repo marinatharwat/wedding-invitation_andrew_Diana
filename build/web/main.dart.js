@@ -40916,7 +40916,7 @@ switch(i.a){case 2:break
 case 1:break
 case 0:break}s=m.ga7q()
 r=m.r.a==="ar"
-q=r?"\u0645\u0650\u0646\u0652 \u0623\u064e\u062c\u0652\u0644\u0650 \u0647\u064e\u0630\u064e\u0627 \u064a\u064e\u062a\u0652\u0631\u064f\u0643\u064f \u0627\u0644\u0631\u0651\u064e\u062c\u064f\u0644\u064f \u0623\u064e\u0628\u064e\u0627\u0647\u064f \u0648\u064e\u0623\u064f\u0645\u0651\u064e\u0647\u064f \u0648\u064e\u064a\u064e\u0644\u0652\u062a\u064e\u0635\u0650\u0642\u064f \u0628\u0650\u0627\u0645\u0652\u0631\u064e\u0623\u064e\u062a\u0650\u0647\u0650\u060c \u0648\u064e\u064a\u064e\u0643\u064f\u0648\u0646\u064f \u0627\u0644\u0627\u062b\u0652\u0646\u064e\u0627\u0646\u0650 \u062c\u064e\u0633\u064e\u062f\u064b\u0627 \u0648\u064e\u0627\u062d\u0650\u062f\u064b\u0627.\n(\u062a\u0643\u0648\u064a\u0646 2:24) ":"Therefore a man shall leave his father and mother and be joined to his wife, and the two shall become one flesh.\n(Genesis 2:24)"
+q=r?"\u0648\u064e\u064a\u064e\u0643\u064f\u0648\u0646\u064f \u0627\u0644\u0627\u062b\u0652\u0646\u064e\u0627\u0646\u0650 \u062c\u064e\u0633\u064e\u062f\u064b\u0627 \u0648\u064e\u0627\u062d\u0650\u062f\u064b\u0627. \u0625\u0650\u0630\u064b\u0627 \u0644\u064e\u064a\u0652\u0633\u064e\u0627 \u0628\u064e\u0639\u0652\u062f\u064f \u0627\u062b\u0652\u0646\u064e\u064a\u0652\u0646\u0650 \u0628\u064e\u0644\u0652 \u062c\u064e\u0633\u064e\u062f\u064c \u0648\u064e\u0627\u062d\u0650\u062f\u064c.\n(\u0645\u0631\u0642\u0633 8:10) ":"And they twain shall be one flesh: so then they are no more twain, but one flesh.\n(Mark 10:8)"
 i=i===B.eb
 p=t.p
 q=A.Hu(A.dF(l,A.du(A.c([new A.W_(q,i,B.j,l),B.Nz,A.jn(l,B.Ut,B.a9,!1,l,l,l,l,l,l,l,l,l,l,l,l,l,m.f,l,l,l)],p),B.L,B.K,B.aH),B.t,B.l,l,l,l,l,l,B.Du,l,l,1/0),B.be,new A.NP())
@@ -84617,7 +84617,7 @@ B.ff=new A.dT(1,0)
 B.h=new A.ZJ(0,"sRGB")
 B.iR=new A.F(1,0.16862745098039217,0.011764705882352941,0.023529411764705882,B.h)
 B.QX=new A.k(!0,B.iR,null,null,null,null,9,null,null,1.5,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ST=new A.n6("v7.0.0",null,B.QX,null,null,null,null,null,null)
+B.ST=new A.n6("v1.0.0",null,B.QX,null,null,null,null,null,null)
 B.zq=new A.j2(B.ff,null,null,B.ST,null)
 B.zr=new A.fr(0,1)
 B.zs=new A.fr(0,-1)
