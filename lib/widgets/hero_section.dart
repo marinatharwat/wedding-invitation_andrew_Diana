@@ -220,7 +220,6 @@ class _VerseBlock extends StatelessWidget {
               style: const TextStyle(
                 fontFamily: 'Jost',
                 fontSize: 11,
-                letterSpacing: 3,
                 fontWeight: FontWeight.w500,
                 color: Colors.white,
               ),
